@@ -2,7 +2,8 @@
 
 namespace JobTracker.API.Controllers
 {
-    public class CompanyController : Controller
+
+    public class CompanyController : ControllerBase
     {
         public IActionResult Index()
         {
