@@ -30,6 +30,6 @@ namespace JobTracker.Data.Repositories
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        Task<List<Data.Models.Company>> GetCompanies();
+        Task<List<Data.Models.Company>> GetCompanies(Expression<Func<Data.Models.Company, bool>> predicate);
     }
 }

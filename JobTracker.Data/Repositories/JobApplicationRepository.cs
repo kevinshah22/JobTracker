@@ -53,7 +53,7 @@ namespace JobTracker.Data.Repositories
         /// <returns></returns>
         public async Task<Data.Models.JobApplication> GetItem(Expression<Func<Data.Models.JobApplication, bool>> predicate)
         {
-            Data.Models.JobApplication item = await _context.JobApplications.Where(predicate).FirstOrDefaultAsync();
+            Data.Models.JobApplication item = await _context.JobApplications.Where(predicate).AsNoTracking().FirstOrDefaultAsync();
             return item;
         }
 
@@ -61,9 +61,9 @@ namespace JobTracker.Data.Repositories
         /// Get list of items based on predicate
         /// </summary>        
         /// <returns></returns>
-        public async Task<List<Data.Models.JobApplication>> GetJobs()
+        public async Task<List<Data.Models.JobApplication>> GetJobs(Expression<Func<Data.Models.JobApplication, bool>> predicate)
         {
-            return await _context.JobApplications.ToListAsync();
+            return await _context.JobApplications.Where(predicate).AsNoTracking().ToListAsync();
         }
     }
 }

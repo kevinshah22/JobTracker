@@ -42,7 +42,7 @@ namespace JobTracker.Data.Repositories
         /// <returns></returns>
         public async Task<Models.Company> GetCompany(Expression<Func<Models.Company, bool>> predicate)
         {
-            return await _context.Companies.Where(predicate).FirstOrDefaultAsync();
+            return await _context.Companies.Where(predicate).AsNoTracking().FirstOrDefaultAsync();
         }
 
         /// <summary>
@@ -50,9 +50,9 @@ namespace JobTracker.Data.Repositories
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public async Task<List<Data.Models.Company>> GetCompanies()
+        public async Task<List<Data.Models.Company>> GetCompanies(Expression<Func<Data.Models.Company, bool>> predicate)
         {
-            return await _context.Companies.ToListAsync();
+            return await _context.Companies.Where(predicate).AsNoTracking().ToListAsync();
         }
     }
 }

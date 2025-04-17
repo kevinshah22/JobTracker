@@ -36,6 +36,6 @@ namespace JobTracker.Data.Repositories
         /// Get list of items based on predicate
         /// </summary>        
         /// <returns></returns>
-        Task<List<Data.Models.JobApplication>> GetJobs();
+        Task<List<Data.Models.JobApplication>> GetJobs(Expression<Func<Data.Models.JobApplication, bool>> predicate);
     }
 }
