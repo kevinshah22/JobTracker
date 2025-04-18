@@ -3,7 +3,7 @@ import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ApiResponse } from '../Models/api-response.model';
 import { LoginResponse } from '../Models/login-response.model';
-
+import {UserLoginModel} from '../Models/login-request.model'
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<boolean> {
-    return this.http.post<ApiResponse<LoginResponse>>(this.apiUrl, { username, password }).pipe(
+  login(data: UserLoginModel): Observable<boolean> {
+    
+    return this.http.post<ApiResponse<LoginResponse>>(this.apiUrl, data).pipe(
       map(response => {
         // Save token to localStorage or a service for future API calls
         if(response.statusCode == 200)

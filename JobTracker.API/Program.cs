@@ -127,6 +127,17 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IUserClaimService, UserClaimService>();
 
 builder.Services.AddAuthorization();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyMethod()
+              .AllowAnyHeader(); // <-- allow Content-Type header
+    });
+});
+
 builder.Services.AddControllers();
 
 
@@ -163,7 +174,7 @@ app.UseExceptionHandler(errorApp =>
 app.UseHttpsRedirection();
 app.UseApiResponseAndExceptionWrapper(new AutoWrapperOptions { ApiVersion = "v1", ShowApiVersion = true, ShowStatusCode = true });
 app.UseRouting();
-
+app.UseCors("AllowAngularApp");
 app.UseAuthentication();
 app.UseAuthorization();
 
