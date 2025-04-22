@@ -3,12 +3,14 @@ using JobTracker.API.Services;
 using JobTracker.Data.Models;
 using JobTracker.Data.Repositories;
 using JobTracker.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobTracker.API.Controllers
 {
-    [Route("v1/[controller]")]
+    [Authorize]
     [ApiController]
+    [Route("api/[controller]")]
     public class JobApplicationController : ControllerBase
     {
         private readonly IJobApplicationRepository _jobApplicationRepository;

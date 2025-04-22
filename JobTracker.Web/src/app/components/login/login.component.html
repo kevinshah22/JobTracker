@@ -2,17 +2,19 @@
     <div class="row justify-content-center">
         <div class="col-md-4">
             <h3>Login</h3>
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mt-5">
+                <div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
                 <div class="mb-3">
-                    <label class="form-label">Username</label>
-                    <input type="text" class="form-control" formControlName="email">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" formControlName="email" [email]="true">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
                     <input type="password" class="form-control" formControlName="password">
                 </div>
-                <div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
+
                 <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+                <a href="/registration" class="text-end float-end">Register your self!</a>
             </form>
         </div>
     </div>

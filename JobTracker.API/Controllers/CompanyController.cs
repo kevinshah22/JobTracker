@@ -10,7 +10,7 @@ namespace JobTracker.API.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route("api/[controller]")]
     public class CompanyController : ControllerBase
     {
         private readonly ICompanyRepository _companyRepository;

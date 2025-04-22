@@ -63,7 +63,16 @@ namespace JobTracker.Data.Repositories
         /// <returns></returns>
         public async Task<List<Data.Models.JobApplication>> GetJobs(Expression<Func<Data.Models.JobApplication, bool>> predicate)
         {
-            return await _context.JobApplications.Where(predicate).AsNoTracking().ToListAsync();
+            try
+            {
+                return await _context.JobApplications.Where(predicate).AsNoTracking().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

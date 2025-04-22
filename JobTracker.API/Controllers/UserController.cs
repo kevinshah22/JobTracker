@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace JobTracker.API.Controllers
 {
     [AllowAnonymous]
+    [ApiController]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
@@ -18,6 +20,7 @@ namespace JobTracker.API.Controllers
             _mapper = mapper;
         }
 
+        [HttpPost("register")]
         public async Task<IActionResult> Register(UserRegistrationModel registrationModel)
         {
             if (ModelState.IsValid)

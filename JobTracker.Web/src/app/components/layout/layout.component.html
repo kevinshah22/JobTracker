@@ -1,0 +1,23 @@
+<div class="d-flex">
+    <nav class="bg-dark text-white p-3" style="min-width: 200px; height: 100vh;">
+      <h5>job Tracker</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/jobs">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/companies" routerLink="/companies">Company</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/company/add" routerLink="/companies">Add Company</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </nav>
+  
+    <div class="flex-grow-1 p-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
