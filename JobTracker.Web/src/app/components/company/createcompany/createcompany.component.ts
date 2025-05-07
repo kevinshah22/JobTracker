@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CompanyService } from '../../../services/company.service';
@@ -16,7 +16,6 @@ export class CreatecompanyComponent implements OnInit {
   companyId: number = 0;
   companyForm: FormGroup;
   errorMessage: string = '';
-
   //companyData: CompanyModel;
 
   constructor(private router: Router,

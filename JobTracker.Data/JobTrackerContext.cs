@@ -17,6 +17,7 @@ namespace JobTracker.Data
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<JobApplication> JobApplications { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Position> Positions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
